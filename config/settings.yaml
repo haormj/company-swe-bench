@@ -1,0 +1,56 @@
+mining:
+  # Time window of merged MRs to consider, in months.
+  time_window_months: 6
+
+filter:
+  # Hard size gate: MRs outside these bounds are rejected.
+  size:
+    min_files: 1
+    max_files: 20
+    min_changed_lines: 5
+    max_changed_lines: 500
+
+  # Ideal size band that earns full marks on the "size" dimension.
+  ideal_size:
+    min_files: 2
+    max_files: 8
+    min_changed_lines: 20
+    max_changed_lines: 200
+
+  # Weighted-scoring dimensions (must sum to 100).
+  weights:
+    verifiable_test: 30
+    reproducible_env: 25
+    self_contained: 20
+    business_representativeness: 15
+    size: 10
+
+  # Number of top candidates kept for review.
+  top_n: 50
+
+  # Substrings that, if present in a diff, mark the MR as sensitive.
+  sensitive_patterns:
+    - "-----BEGIN"
+    - "PRIVATE KEY"
+    - "AKIA"
+    - "aws_secret_access_key"
+
+  # Labels that signal business representatives.
+  business_labels:
+    - feature
+    - backend
+    - core
+    - service
+
+  # Source directories considered core / business code.
+  core_paths:
+    - "src/"
+    - "app/"
+    - "lib/"
+
+  # Path keywords that classify a changed file as a test file.
+  test_path_keywords:
+    - test
+    - tests
+    - e2e
+    - testing

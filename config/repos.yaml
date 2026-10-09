@@ -1,0 +1,7 @@
+# Target repositories to mine. Credentials come from the environment
+# (GITLAB_TOKEN), never from this file.
+repos:
+  - group: inkscape
+    repo: inkscape
+    language: cpp
+    default_branch: master

@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.venv/
+.opencode/
+
+# Generated pipeline artifacts (raw dumps must not be published)
+data/
+tasks/
+jobs/
+*.log

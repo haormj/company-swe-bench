@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "company-swe-bench"
+version = "0.1.0"
+description = "Offline pipeline that turns internal GitLab MRs into Harbor evaluation tasks"
+requires-python = ">=3.9"
+dependencies = [
+    "python-gitlab>=3.15",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["mining", "filter", "packaging"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
